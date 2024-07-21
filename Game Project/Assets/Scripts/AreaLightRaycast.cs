@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class AreaLightRaycast : MonoBehaviour
 {
-  public float range;
 
-  public float iIncrement;
-  public float iMax;
-  public float dirY;
-  public float dirX;
+  public GameObject[] playerColliders;
+  // public float range;
+
+  // public float iIncrement;
+  // public float iMax;
+  // public float dirY;
+  // public float dirX;
   
   public GameObject player;
     // Start is called before the first frame update
@@ -21,17 +23,24 @@ public class AreaLightRaycast : MonoBehaviour
 
     // Update is called once per frame
     private void FixedUpdate(){
-      for(float i = 0; i < 1; i += 0.01f) {
 
-        for(dirY = 0f; dirY < iMax;){
-        Ray theRay = new Ray(transform.position, transform.TransformDirection(new Vector3(0, i, 1) * range));
+      for (int i = 0; i < 4; i++){
+        Ray ray = new Ray(transform.position, transform.TransformDirection(playerColliders[i].transform.position - transform.position));
+        Debug.DrawRay(transform.position, transform.TransformDirection(playerColliders[i].transform.position - transform.position));
+      }
 
-        //Vector3 v = Quaternion.AngleAxis(-30, Vector3.up) * new Vector3(1,0,0);
-        Debug.DrawRay(transform.position, transform.TransformDirection(new Vector3(i, dirY, dirX) * range));
-        dirY += iIncrement;
-        //dirX -= iIncrement;
-      }
-      }
+
+      // for(float i = 0; i < 1; i += 0.01f) {
+
+      //   for(dirY = 0f; dirY < iMax;){
+      //   Ray theRay = new Ray(transform.position, transform.TransformDirection(new Vector3(0, i, 1) * range));
+
+      //   //Vector3 v = Quaternion.AngleAxis(-30, Vector3.up) * new Vector3(1,0,0);
+      //   Debug.DrawRay(transform.position, transform.TransformDirection(new Vector3(i, dirY, dirX) * range));
+      //   dirY += iIncrement;
+      //   //dirX -= iIncrement;
+      // }
+      // }
       
       
     }
