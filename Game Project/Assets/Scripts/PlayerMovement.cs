@@ -15,10 +15,10 @@ public class PlayerMovement : MonoBehaviour
 
     // Update is called once per frame
     private void FixedUpdate(){
-      speedX = Input.GetAxisRaw("Horizontal") * playerSpeed;
-      speedY = Input.GetAxisRaw("Vertical") * playerSpeed;
+        speedX = Input.GetAxisRaw("Horizontal") * playerSpeed;
+        speedY = Input.GetAxisRaw("Vertical") * playerSpeed;
 
-      rb.velocity = new Vector3(speedX, 0, speedY);
+        rb.velocity = new Vector3(speedX, 0, speedY);
     }
 
     
